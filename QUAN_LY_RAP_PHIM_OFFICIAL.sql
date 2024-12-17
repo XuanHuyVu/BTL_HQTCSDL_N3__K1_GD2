@@ -1,0 +1,261 @@
+CREATE DATABASE QUAN_LY_RAP_PHIM_OFFICIAL
+ON PRIMARY
+(
+    NAME = 'QUAN_LY_RAP_PHIM_OFFICIAL',
+    FILENAME = 'D:\DATA\BTL\QUAN_LY_RAP_PHIM_OFFICIAL.mdf',
+    SIZE = 10MB,
+    MAXSIZE = 50MB,
+    FILEGROWTH = 2MB
+)
+LOG ON
+(
+    NAME = 'QUAN_LY_RAP_PHIM_OFFICIAL_Log',
+    FILENAME = 'D:\DATA\BTL\QUAN_LY_RAP_PHIM_OFFICIAL.ldf',
+    SIZE = 5MB,
+    MAXSIZE = 20MB,
+    FILEGROWTH = 1MB
+)
+USE QUAN_LY_RAP_PHIM_OFFICIAL;
+-- Create THELOAIPHIM table
+CREATE TABLE THELOAIPHIM (
+    MaTheLoai VARCHAR(10) PRIMARY KEY,
+    TenTheLoai NVARCHAR(50),
+    TrangThaiPhim NVARCHAR(20)
+);
+
+-- Create NHACUNGCAP table
+CREATE TABLE NHACUNGCAP (
+    MaNCC VARCHAR(10) PRIMARY KEY,
+    MaQuanLy VARCHAR(10),
+    TenNCC NVARCHAR(100),
+    DiaChi NVARCHAR(200),
+    TinhTrang NVARCHAR(50),
+    SDT VARCHAR(15),
+    Email VARCHAR(100)
+);
+
+-- Create TAIKHOAN table
+CREATE TABLE TAIKHOAN (
+    TenTaiKhoan VARCHAR(50) PRIMARY KEY,
+    MatKhau VARCHAR(100),
+    VaiTro NVARCHAR(20)
+);
+
+-- Create NHANVIEN table
+CREATE TABLE NHANVIEN (
+    MaNhanVien VARCHAR(10) PRIMARY KEY,
+    TenTaiKhoan VARCHAR(50),
+    TenNhanVien NVARCHAR(100),
+    NgaySinh DATE,
+    GioiTinh NVARCHAR(10),
+    DiaChi NVARCHAR(200),
+    NgayVaoLam DATE,
+    ViTri NVARCHAR(50),
+    SoDienThoai VARCHAR(15),
+    Gmail VARCHAR(100),
+    NgayRa DATE,
+    FOREIGN KEY (TenTaiKhoan) REFERENCES TAIKHOAN(TenTaiKhoan)
+);
+
+-- Create QUANLY table
+CREATE TABLE QUANLY (
+    MaQuanLy VARCHAR(10) PRIMARY KEY,
+    TenTaiKhoan VARCHAR(50),
+    TenQuanLy NVARCHAR(100),
+    NgaySinh DATE,
+    GioiTinh NVARCHAR(10),
+    DiaChi NVARCHAR(200),
+    NgayVaoLam DATE,
+    ViTri NVARCHAR(50),
+    SoDienThoai VARCHAR(15),
+    Gmail VARCHAR(100),
+    NgayRa DATE,
+    FOREIGN KEY (TenTaiKhoan) REFERENCES TAIKHOAN(TenTaiKhoan)
+);
+
+-- Add foreign key to NHACUNGCAP after QUANLY creation
+ALTER TABLE NHACUNGCAP
+ADD FOREIGN KEY (MaQuanLy) REFERENCES QUANLY(MaQuanLy);
+
+-- Create PHIM table
+CREATE TABLE PHIM (
+    MaPhim VARCHAR(10) PRIMARY KEY,
+    TenPhim NVARCHAR(100),
+    MaTheLoai VARCHAR(10),
+    ThoiLuong INT,
+    NgayCongChieu DATE,
+    TrangThai NVARCHAR(20),
+    MoTa NVARCHAR(MAX),
+    DuongDan VARCHAR(200),
+    MaNCC VARCHAR(10),
+    FOREIGN KEY (MaNCC) REFERENCES NHACUNGCAP(MaNCC),
+    FOREIGN KEY (MaTheLoai) REFERENCES THELOAIPHIM(MaTheLoai)
+);
+
+-- Create PHONGCHIEU table
+CREATE TABLE PHONGCHIEU (
+    MaPhongChieu VARCHAR(10) PRIMARY KEY,
+    TenPhong NVARCHAR(50),
+    SoGhe INT,
+    LoaiPhong NVARCHAR(20),
+    TrangThaiPhong NVARCHAR(20)
+);
+
+-- Create LOAIGHE table
+CREATE TABLE LOAIGHE (
+    MaLoaiGhe VARCHAR(10) PRIMARY KEY,
+    TenLoaiGhe NVARCHAR(50),
+    MoTa NVARCHAR(200),
+    GiaGhe DECIMAL(10,2),
+    MauGhe NVARCHAR(20)
+);
+
+-- Create GHENGOI table
+CREATE TABLE GHENGOI (
+    MaGhe VARCHAR(10) PRIMARY KEY,
+    MaLoaiGhe VARCHAR(10),
+    MaPhongChieu VARCHAR(10),
+    HangGhe VARCHAR(5),
+    SoGhe INT,
+    TrangThai NVARCHAR(20),
+    GiaGhe DECIMAL(10,2),
+    NgayDat DATE,
+    FOREIGN KEY (MaLoaiGhe) REFERENCES LOAIGHE(MaLoaiGhe),
+    FOREIGN KEY (MaPhongChieu) REFERENCES PHONGCHIEU(MaPhongChieu)
+);
+
+-- Create LICHCHIEU table
+CREATE TABLE LICHCHIEU (
+    MaLichChieu VARCHAR(10) PRIMARY KEY,
+    MaPhim VARCHAR(10),
+    NgayChieu DATE,
+    GioBatDau TIME,
+    GioKetThuc TIME,
+    DinhDangPhim NVARCHAR(20),
+    NgonNgu NVARCHAR(20),
+    TrangThai NVARCHAR(20),
+    SoVeConLai INT,
+    FOREIGN KEY (MaPhim) REFERENCES PHIM(MaPhim)
+);
+
+-- Create KHACHHANG table
+CREATE TABLE KHACHHANG (
+    MaKhachHang VARCHAR(10) PRIMARY KEY,
+    HoTen NVARCHAR(100),
+    SDT VARCHAR(15),
+    Email VARCHAR(100),
+    NgaySinh DATE,
+    GioiTinh NVARCHAR(10),
+    DiaChi NVARCHAR(200),
+    LoaiKhachHang NVARCHAR(20),
+    LichSuGiaoDich NVARCHAR(MAX),
+    DiemTichLuy INT
+);
+
+-- Create HOADON table
+CREATE TABLE HOADON (
+    MaHoaDon VARCHAR(10) PRIMARY KEY,
+    MaKhachHang VARCHAR(10),
+    MaNhanVien VARCHAR(10),
+    MaDoAn VARCHAR(10),
+    NgayLapHoaDon DATETIME,
+    TongTien DECIMAL(10,2),
+    KieuThanhToan NVARCHAR(50),
+    TrangThaiThanhToan NVARCHAR(20),
+    ChiTiet NVARCHAR(MAX),
+    MaVoucher VARCHAR(10),
+    ThueVAT DECIMAL(5,2),
+    GhiChu NVARCHAR(200),
+    FOREIGN KEY (MaKhachHang) REFERENCES KHACHHANG(MaKhachHang),
+    FOREIGN KEY (MaNhanVien) REFERENCES NHANVIEN(MaNhanVien)
+);
+
+-- Create MAGIAMGIA table
+CREATE TABLE MAGIAMGIA (
+    MaVoucher VARCHAR(10) PRIMARY KEY,
+    GiaTriVoucher DECIMAL(10,2),
+    NgayHetHan DATE,
+    TrangThaiVoucher NVARCHAR(20),
+    MaKhachHang VARCHAR(10),
+    SoLuongSuDung INT,
+    MoTa NVARCHAR(200),
+    MaHoaDon VARCHAR(10),
+    FOREIGN KEY (MaKhachHang) REFERENCES KHACHHANG(MaKhachHang),
+    FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon)
+);
+
+-- Add foreign key to HOADON after MAGIAMGIA creation
+ALTER TABLE HOADON
+ADD FOREIGN KEY (MaVoucher) REFERENCES MAGIAMGIA(MaVoucher);
+
+-- Create DOAN table
+CREATE TABLE DOAN (
+    MaDoAn VARCHAR(10) PRIMARY KEY,
+    TenDoAn NVARCHAR(100),
+    Gia DECIMAL(10,2),
+    TrangThai NVARCHAR(20),
+    NgayNhap DATE,
+    MaHoaDon VARCHAR(10),
+    FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon)
+);
+
+-- Add foreign key to HOADON after DOAN creation
+ALTER TABLE HOADON
+ADD FOREIGN KEY (MaDoAn) REFERENCES DOAN(MaDoAn);
+
+-- Create TINTUC table
+CREATE TABLE TINTUC (
+    MaTinTuc VARCHAR(10) PRIMARY KEY,
+    MaPhim VARCHAR(10),
+    MaNhanVien VARCHAR(10),
+    TieuDe NVARCHAR(200),
+    NoiDung NVARCHAR(MAX),
+    HinhAnh VARCHAR(200),
+    TrangThaiTin NVARCHAR(20),
+    SoLuotXem INT,
+    BinhLuan NVARCHAR(MAX),
+    FOREIGN KEY (MaPhim) REFERENCES PHIM(MaPhim),
+    FOREIGN KEY (MaNhanVien) REFERENCES NHANVIEN(MaNhanVien)
+);
+
+-- Create VE table
+CREATE TABLE VE (
+    MaVe VARCHAR(10) PRIMARY KEY,
+    MaPhim VARCHAR(10),
+    TenPhim NVARCHAR(100),
+    NgayChieu DATE,
+    DonGia DECIMAL(10,2),
+    LoaiVe NVARCHAR(20),
+    SoLuong INT,
+    TrangThaiVe NVARCHAR(20),
+    MaGhe VARCHAR(10),
+    NgayBan DATE,
+    ThanhToan DECIMAL(10,2),
+    MaKhachHang VARCHAR(10),
+    MaLichChieu VARCHAR(10),
+    MaHoaDon VARCHAR(10),
+    FOREIGN KEY (MaPhim) REFERENCES PHIM(MaPhim),
+    FOREIGN KEY (MaGhe) REFERENCES GHENGOI(MaGhe),
+    FOREIGN KEY (MaKhachHang) REFERENCES KHACHHANG(MaKhachHang),
+    FOREIGN KEY (MaLichChieu) REFERENCES LICHCHIEU(MaLichChieu),
+    FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon)
+);
+
+-- Create PHIM_THELOAIPHIM junction table
+CREATE TABLE PHIM_THELOAIPHIM (
+    MaPhim VARCHAR(10),
+    MaTheLoai VARCHAR(10),
+    PRIMARY KEY (MaPhim, MaTheLoai),
+    FOREIGN KEY (MaPhim) REFERENCES PHIM(MaPhim),
+    FOREIGN KEY (MaTheLoai) REFERENCES THELOAIPHIM(MaTheLoai)
+);
+
+-- Create KHACHHANG_MAGIAMGIA junction table
+CREATE TABLE KHACHHANG_MAGIAMGIA (
+    MaKhachHang VARCHAR(10),
+    MaVoucher VARCHAR(10),
+    PRIMARY KEY (MaKhachHang, MaVoucher),
+    FOREIGN KEY (MaKhachHang) REFERENCES KHACHHANG(MaKhachHang),
+    FOREIGN KEY (MaVoucher) REFERENCES MAGIAMGIA(MaVoucher)
+);
+
