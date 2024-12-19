@@ -1,4 +1,4 @@
-﻿CREATE DATABASE QUAN_LY_RAP_PHIM_OFFICIAL
+﻿﻿CREATE DATABASE QUAN_LY_RAP_PHIM_OFFICIAL
 ON PRIMARY
 (
     NAME = 'QUAN_LY_RAP_PHIM_OFFICIAL',
@@ -266,6 +266,15 @@ CREATE TABLE KHACHHANG_MAGIAMGIA (
     FOREIGN KEY (MaVoucher) REFERENCES MAGIAMGIA(MaVoucher)
 );
 
+-- Create HOADON_DOAN junction table
+CREATE TABLE HOADON_DOAN (
+    MaHoaDon VARCHAR(10),
+    MaDoAn VARCHAR(10),
+    PRIMARY KEY (MaHoaDon, MaDoAn),
+    FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon),
+    FOREIGN KEY (MaDoAn) REFERENCES DOAN(MaDoAn)
+);
+
 -- Insert data table THELOAIPHIM
 INSERT INTO THELOAIPHIM (MaTheLoai, TenTheLoai, TrangThaiPhim) VALUES
 ('TL001', 'Phim hành động', 'Hoạt động'),
@@ -446,6 +455,3 @@ VALUES
     ('NCC008', 'QL003', N'Công ty TNHH Quảng Cáo & Phim Ảnh Tiêu Điểm', N'Lầu 3, Star Building, Mạc Đĩnh Chi, P.Đa Kao, Q.1, TP.HCM', N'Hoạt động', '038221936', NULL),
     ('NCC009', 'QL004', N'Hãng phim truyện Việt Nam', N'Số 4 phố Thụy Khuê, phường Thụy Khuê, quận Tây Hồ, thành phố Hà Nội', N'Hoạt động', NULL, NULL),
     ('NCC010', 'QL005', N'Hãng Phim Việt Nam', N'139 Lò Đức, Hai Bà Trưng, Hà Nội', N'Hoạt động', '0916616612', 'hangphimvietnam@gmail.com');
-
-
-
