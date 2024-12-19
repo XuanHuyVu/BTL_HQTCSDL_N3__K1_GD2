@@ -15,6 +15,7 @@ LOG ON
     MAXSIZE = 20MB,
     FILEGROWTH = 1MB
 )
+
 USE QUAN_LY_RAP_PHIM_OFFICIAL;
 -- Create THELOAIPHIM table
 CREATE TABLE THELOAIPHIM (
@@ -590,7 +591,7 @@ INSERT INTO PHIM (MaPhim, TenPhim, MaTheLoai, ThoiLuong, NgayCongChieu, TrangTha
 ('PH00130', N'Bố Đầu Nhỏ Con Đầu To: Thiên Tài Xuất Hiện', 'TL005', 100, '2019-05-07', N'Sắp chiếu', N'Lo lắng cho tương lai của Đầu To ham chơi, mẹ Tạp Dề ủy thác mọi hi vọng vào kế hoạch “một ngày thành tài” của tay tiến sĩ bí ẩn.', 'videos/64a285864e7b14302ef7ce5dee395601d73a1df5349feffa92pimgpshfullsizedistr-201810888.mp4', 'NCC008', 
 'phim/64a285864e7b14302ef7ce5dee395601d73a1df5349feffa92pimgpshfullsizedistr-201810888.jpg');
 
--- Insert data into GHENGOI table
+-- Insert data table GHENGOI 
 INSERT INTO GHENGOI (MaGhe, MaLoaiGhe, MaPhongChieu, HangGhe, SoGhe, TrangThai, GiaGhe, NgayDat) VALUES
 ('PC1A1', 'LG005', '1', 'A', 1, N'Chưa Đặt', 45000, NULL),
 ('PC1A2', 'LG005', '1', 'A', 2, N'Chưa Đặt', 45000, NULL),
@@ -713,7 +714,7 @@ INSERT INTO GHENGOI (MaGhe, MaLoaiGhe, MaPhongChieu, HangGhe, SoGhe, TrangThai, 
 ('PC3D9', 'LG008', '3', 'D', 9, N'Đã Đặt', 60000, '2024-12-19'),
 ('PC3D10', 'LG008', '3', 'D', 10, N'Đã Đặt', 60000, '2024-12-19');
 
--- Insert data into LICHCHIEU table
+-- Insert data table LICHCHIEU 
 INSERT INTO LICHCHIEU (MaLichChieu, NgayChieu, GioBatDau, GioKetThuc, MaPhim, MaPhongChieu, DinhDangPhim, NgonNgu, TrangThai, SoVeConLai)
 VALUES
 ('LC00000001', '2018-05-01', '08:30:00', '10:30:00', 'PH00001', 1, 'IMAX', N'Vietnamese', 'Available', 100),
