@@ -1231,6 +1231,7 @@ VALUES
 ('TT019', 'PH00019', 'NV001', 'Maze Runner: The Scorch Trials', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.', 'http://dummyimage.com/207x100.png/dddddd/000000', 'không hoạt động', 6845, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.'),
 ('TT020', 'PH00020', 'NV002', 'The Divergent Series: Insurgent', 'Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'http://dummyimage.com/176x100.png/cc0000/ffffff', 'hoạt động', 5373, 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.');
 
+
 UPDATE TINTUC
 SET TrangThaiTin = N'Hoạt động'
 WHERE TrangThaiTin = 'hoạt động';
