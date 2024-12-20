@@ -454,4 +454,3 @@ VALUES
     ('NCC007', 'QL002', N'Công Ty TNHH Thương Mại Dịch Vụ Sao Quang Minh', N'14 Phan Tôn, P.Đa Kao, Q.1, TP.HCM', N'Hoạt động', '039100125', NULL),
     ('NCC008', 'QL003', N'Công ty TNHH Quảng Cáo & Phim Ảnh Tiêu Điểm', N'Lầu 3, Star Building, Mạc Đĩnh Chi, P.Đa Kao, Q.1, TP.HCM', N'Hoạt động', '038221936', NULL),
     ('NCC009', 'QL004', N'Hãng phim truyện Việt Nam', N'Số 4 phố Thụy Khuê, phường Thụy Khuê, quận Tây Hồ, thành phố Hà Nội', N'Hoạt động', NULL, NULL),
-    ('NCC010', 'QL005', N'Hãng Phim Việt Nam', N'139 Lò Đức, Hai Bà Trưng, Hà Nội', N'Hoạt động', '0916616612', 'hangphimvietnam@gmail.com');
