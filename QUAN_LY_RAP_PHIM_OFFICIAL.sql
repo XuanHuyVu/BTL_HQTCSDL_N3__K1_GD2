@@ -1227,3 +1227,9 @@ VALUES
 ('TT018', 'PH00018', 'NV003', 'The Hunger Games: Mockingjay', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 'http://dummyimage.com/155x100.png/ff4444/ffffff', 'hoạt động', 4567, 'Ut at dolor quis odio consequat varius.'),
 ('TT019', 'PH00019', 'NV001', 'Maze Runner: The Scorch Trials', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.', 'http://dummyimage.com/207x100.png/dddddd/000000', 'không hoạt động', 6845, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.'),
 ('TT020', 'PH00020', 'NV002', 'The Divergent Series: Insurgent', 'Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'http://dummyimage.com/176x100.png/cc0000/ffffff', 'hoạt động', 5373, 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.');
+UPDATE TINTUC
+SET TrangThaiTin = N'Hoạt động'
+WHERE TrangThaiTin = 'hoạt động';
+UPDATE TINTUC
+SET TrangThaiTin = N'Không hoạt động'
+WHERE TrangThaiTin = 'không hoạt động';
