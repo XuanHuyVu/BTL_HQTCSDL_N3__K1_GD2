@@ -1,16 +1,16 @@
-﻿﻿CREATE DATABASE QUAN_LY_RAP_PHIM_OFFICIAL
+﻿CREATE DATABASE QUAN_LY_RAP_PHIM_OFFICIAL
 ON PRIMARY
 (
-    NAME = 'QUAN_LY_RAP_PHIM_OFFICIAL',
-    FILENAME = 'E:\HQTCSDL\THUCHANH\BTL_HQTCSDL_N3__K1_GD2\QUAN_LY_RAP_PHIM_OFFICIAL.mdf',
+    NAME = QUAN_LY_RAP_PHIM_OFFICIAL,
+    FILENAME = 'C:\Users\luong\OneDrive - Thanglele\O D\64KTPM3\HQTCSDl\BTL_HQTCSDL_N3__K1_GD2\QUAN_LY_RAP_PHIM_OFFICIAL.mdf',
     SIZE = 10MB,
     MAXSIZE = 50MB,
     FILEGROWTH = 2MB
 )
 LOG ON
 (
-    NAME = 'QUAN_LY_RAP_PHIM_OFFICIAL_Log',
-    FILENAME = 'E:\HQTCSDL\THUCHANH\BTL_HQTCSDL_N3__K1_GD2\QUAN_LY_RAP_PHIM_OFFICIAL.ldf',
+    NAME = QUAN_LY_RAP_PHIM_OFFICIAL_Log,
+    FILENAME = 'C:\Users\luong\OneDrive - Thanglele\O D\64KTPM3\HQTCSDl\BTL_HQTCSDL_N3__K1_GD2\QUAN_LY_RAP_PHIM_OFFICIAL.ldf',
     SIZE = 5MB,
     MAXSIZE = 20MB,
     FILEGROWTH = 1MB
@@ -482,14 +482,14 @@ INSERT INTO PHIM (MaPhim, TenPhim, MaTheLoai, ThoiLuong, NgayCongChieu, TrangTha
 ('PH00005', N'Siêu Nhân Đặc Cảnh', 'TL005', 110, '2019-05-15', N'Đang chiếu', N'Siêu nhân đặc cảnh một lần nữa phải đối mặt với các tổ chức tội phạm quốc tế trong một nhiệm vụ đầy thử thách.', 'videos/1-20190615.mp4', 'NCC005', 'phim/1-20190615.jpg'),
 ('PH00006', N'Cuộc Chiến Thế Giới 3', 'TL006', 150, '2020-01-20', N'Ngừng chiếu', N'Một trận chiến hoành tráng giữa các quốc gia và những thế lực thù địch trong một tương lai không xa, khi các cường quốc tranh giành quyền lực tối cao.', 'videos/1-20200121.mp4', 'NCC006', 'phim/1-20200121.jpg'),
 ('PH00007', N'Siêu Anh Hùng Vô Song', 'TL007', 120, '2020-04-11', N'Đang chiếu', N'Siêu anh hùng trong phần mới này sẽ đối mặt với kẻ thù đáng sợ hơn, không chỉ là mối đe dọa cho thế giới mà còn là những bí mật lớn.', 'videos/1-20200411.mp4', 'NCC007', 'phim/1-20200411.jpg'),
-('PH00008', N'Vượt Thời Gian', 'TL008', 125, '2020-06-18', N'Ngừng chiếu', N'Một bộ phim viễn tưởng nói về cuộc chiến tranh kéo dài hàng nghìn năm, nơi những người dám vượt thời gian để ngừng lại những cuộc chiến vô nghĩa.', 'videos/1-20200618.mp4', 'NCC008', 'phim/1-20200618.jpg'),
-('PH00009', N'Tiền Lợi Hại', 'TL009', 115, '2021-01-10', N'Đang chiếu', N'Một bộ phim về thế giới ngầm của các tổ chức tội phạm quốc tế, nơi mà tiền là vũ khí mạnh nhất và ai nắm giữ tiền sẽ nắm giữ quyền lực.', 'videos/1-20210110.mp4', 'NCC009', 'phim/1-20210110.jpg'),
+('PH00008', N'Vượt Thời Gian', 'TL004', 125, '2020-06-18', N'Ngừng chiếu', N'Một bộ phim viễn tưởng nói về cuộc chiến tranh kéo dài hàng nghìn năm, nơi những người dám vượt thời gian để ngừng lại những cuộc chiến vô nghĩa.', 'videos/1-20200618.mp4', 'NCC008', 'phim/1-20200618.jpg'),
+('PH00009', N'Tiền Lợi Hại', 'TL003', 115, '2021-01-10', N'Đang chiếu', N'Một bộ phim về thế giới ngầm của các tổ chức tội phạm quốc tế, nơi mà tiền là vũ khí mạnh nhất và ai nắm giữ tiền sẽ nắm giữ quyền lực.', 'videos/1-20210110.mp4', 'NCC009', 'phim/1-20210110.jpg'),
 ('PH00010', N'Muôn Màu Cuộc Sống', 'TL001', 100, '2021-03-15', N'Ngừng chiếu', N'Một bộ phim hài về những câu chuyện cuộc sống qua các giai đoạn, đầy màu sắc và cảm xúc, mang đến một thông điệp ý nghĩa.', 'videos/1-20210315.mp4', 'NCC010', 'phim/1-20210315.jpg'),
-('PH00011', N'Chuyến Tàu Tốc Hành', 'TL001', 135, '2021-06-20', N'Đang chiếu', N'Một chuyến tàu tốc hành đầy bất ngờ, nơi hành khách phải đối mặt với những mối nguy hiểm lớn, quyết định sống còn trong giây phút cuối cùng.', 'videos/1-20210620.mp4', 'NCC011', 'phim/1-20210620.jpg'),
-('PH00012', N'Mai Sau Đến', 'TL002', 110, '2021-09-05', N'Ngừng chiếu', N'Một câu chuyện tình yêu không có hồi kết, với những thách thức từ quá khứ và tương lai, bộ phim đi theo một mạch phim hành động tình cảm.', 'videos/1-20210905.mp4', 'NCC012', 'phim/1-20210905.jpg'),
-('PH00013', N'Người Bảo Vệ Tự Do', 'TL013', 140, '2022-01-01', N'Đang chiếu', N'Cuộc chiến không khoan nhượng của những chiến binh vì tự do, không sợ chết, và đấu tranh đến cùng để bảo vệ những giá trị tối cao.', 'videos/1-20220101.mp4', 'NCC013', 'phim/1-20220101.jpg'),
-('PH00014', N'Một Đời Lập Dị', 'TL004', 125, '2022-04-22', N'Ngừng chiếu', N'Một câu chuyện về một nhân vật kỳ lạ và hành trình tìm kiếm sự thực về cuộc đời mình, dù mọi người xung quanh đều nghĩ anh ta điên.', 'videos/1-20220422.mp4', 'NCC014', 'phim/1-20220422.jpg'),
-('PH00015', N'Phim Kinh Dị: Màn Đêm Lạnh Lẽo', 'TL005', 105, '2022-07-11', N'Đang chiếu', N'Một bộ phim kinh dị tâm lý về một gia đình bị ám ảnh bởi những hiện tượng kỳ lạ trong ngôi nhà mới, khi bí mật cũ dần được hé lộ.', 'videos/1-20220711.mp4', 'NCC015', 'phim/1-20220711.jpg');
+('PH00011', N'Chuyến Tàu Tốc Hành', 'TL001', 135, '2021-06-20', N'Đang chiếu', N'Một chuyến tàu tốc hành đầy bất ngờ, nơi hành khách phải đối mặt với những mối nguy hiểm lớn, quyết định sống còn trong giây phút cuối cùng.', 'videos/1-20210620.mp4', 'NCC010', 'phim/1-20210620.jpg'),
+('PH00012', N'Mai Sau Đến', 'TL002', 110, '2021-09-05', N'Ngừng chiếu', N'Một câu chuyện tình yêu không có hồi kết, với những thách thức từ quá khứ và tương lai, bộ phim đi theo một mạch phim hành động tình cảm.', 'videos/1-20210905.mp4', 'NCC001', 'phim/1-20210905.jpg'),
+('PH00013', N'Người Bảo Vệ Tự Do', 'TL003', 140, '2022-01-01', N'Đang chiếu', N'Cuộc chiến không khoan nhượng của những chiến binh vì tự do, không sợ chết, và đấu tranh đến cùng để bảo vệ những giá trị tối cao.', 'videos/1-20220101.mp4', 'NCC003', 'phim/1-20220101.jpg'),
+('PH00014', N'Một Đời Lập Dị', 'TL004', 125, '2022-04-22', N'Ngừng chiếu', N'Một câu chuyện về một nhân vật kỳ lạ và hành trình tìm kiếm sự thực về cuộc đời mình, dù mọi người xung quanh đều nghĩ anh ta điên.', 'videos/1-20220422.mp4', 'NCC004', 'phim/1-20220422.jpg'),
+('PH00015', N'Phim Kinh Dị: Màn Đêm Lạnh Lẽo', 'TL005', 105, '2022-07-11', N'Đang chiếu', N'Một bộ phim kinh dị tâm lý về một gia đình bị ám ảnh bởi những hiện tượng kỳ lạ trong ngôi nhà mới, khi bí mật cũ dần được hé lộ.', 'videos/1-20220711.mp4', 'NCC005', 'phim/1-20220711.jpg');
 INSERT INTO PHIM (MaPhim, TenPhim, MaTheLoai, ThoiLuong, NgayCongChieu, TrangThai, MoTa, DuongDan, MaNCC, HinhAnh) VALUES
 ('PH00016', N'Bậc Thầy Phong Thủy', 'TL001', 126, '2018-03-27', N'Ngừng chiếu', N'Đánh dấu sự trở lại của tài tử Jo Seung Woo sau ba năm vắng bóng màn ảnh rộng kể từ hit 18+ Inside Men. Dự án này có kinh phí 12 tỉ won (khoảng 249 tỉ VND) và là phần phim cuối cùng trong một bộ ba phim lịch sử Hàn Quốc, hai tác phẩm trước là The Face Reader (2013) và The Princess and the Matchmaker (2018).', 'videos/1-201811345.mp4', 'NCC001', 'phim/1-201811345.jpg'),
 ('PH00017', N'Nạn Đói Năm 47', 'TL007', 100, '2018-03-17', N'Ngừng chiếu', N'Trong thời kỳ nạn đói xảy ra ở Ai-Len, một người Ai-Len tên là Ranger đã chiến đấu trong quân đội Anh ở nước ngoài, ông từ bỏ vị trí của mình để trở về đoàn tụ với gia đình. Mặc dù trải qua những kinh hoàng trong chiến tranh nhưng ông vẫn bị sốc khi chứng kiến nạn đói ở quê hương ảnh hưởng đến người dân cũng như với gia đình của mình.', 'videos/1-201811131.mp4', 'NCC002', 'phim/1-201811131.jpg'),
